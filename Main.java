@@ -5,6 +5,7 @@ public class Main {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
+	
 
         while (true) {
 
@@ -40,21 +41,23 @@ public class Main {
 
     static void customerAuth() {
 
-        System.out.println("\n1. Login");
-        System.out.println("2. Register");
+    System.out.println("\n1. Login");
+    System.out.println("2. Register");
 
-        int ch = sc.nextInt();
+    int ch = sc.nextInt();
 
-        User user = null;
+    User user = null;
 
-        if (ch == 1)
-            user = AuthSystem.login("customer");
-        else
-            user = AuthSystem.register("customer");
+    if (ch == 1)
+        user = AuthSystem.login("customer");
+    else
+        user = AuthSystem.register("customer");
 
-        if (user != null)
-            CustomerPanel.customerMenu();
+    if (user != null) {
+        CustomerPanel.setCurrentCustomer(user);
+        CustomerPanel.customerMenu();
     }
+}
 
     static void sellerAuth() {
 
